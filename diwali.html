@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #001f3f;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #diwaliMessage {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .cracker {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 60px;
+            background-color: #f00;
+            border-radius: 5px 5px 0 0;
+            animation: burst 0.5s ease-in-out;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: scaleY(1);
+            }
+            50% {
+                transform: scaleY(0.2);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="diwaliMessage">
+        <p> "Hello Miss monochromatic soul with a colourfull heart"</p>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+    </div>
+
+    <script>
+        function burstCracker(cracker) {
+            cracker.style.animation = 'none';
+            setTimeout(() => {
+                cracker.style.animation = 'burst 0.5s ease-in-out';
+            }, 10);
+        }
+
+        window.onload = function() {
+            const crackers = document.querySelectorAll('.cracker');
+
+            crackers.forEach(cracker => {
+                cracker.addEventListener('click', () => burstCracker(cracker));
+            });
+        };
+    </script>
+</body>
+</html>
